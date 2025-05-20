@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Performance - Porsoinc</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background: #fff;
+      color: #111;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255, 255, 255, 0.9);
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+      z-index: 100;
+      gap: 40px;
+    }
+
+    header nav {
+      display: flex;
+      gap: 60px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: #000;
+    }
+
+    #dark-mode-toggle {
+      cursor: pointer;
+      background: none;
+      border: 1.5px solid #333;
+      border-radius: 20px;
+      padding: 5px 15px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    #dark-mode-toggle:hover {
+      background-color: #ddd;
+    }
+
+    main {
+      padding-top: 60px;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: color(srgb: #444)) center/cover no-repeat;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    section p {
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #777;
+      border-top: 1px solid #ddd;
+    }
+
+    /* 다크모드 */
+    body.dark-mode {
+      background-color: #121212;
+      color: #eee;
+    }
+
+    body.dark-mode header {
+      background: rgba(18, 18, 18, 0.9);
+      box-shadow: 0 1px 5px rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark-mode header nav a {
+      color: #ccc;
+    }
+
+    body.dark-mode header nav a:hover {
+      color: #fff;
+    }
+
+    body.dark-mode #dark-mode-toggle {
+      border-color: #ccc;
+      color: #ccc;
+    }
+
+    body.dark-mode #dark-mode-toggle:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
+    body.dark-mode section h2 {
+      color: #fff;
+    }
+
+    body.dark-mode section p {
+      color: #ccc;
+    }
+
+    body.dark-mode footer {
+      color: #888;
+      border-color: #333;
+    }
+
+    body.dark-mode .hero::before {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="performance.html">Performance</a>
+      <a href="price.html">Price</a>
+      <a href="launch.html">Launch</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <button id="dark-mode-toggle">Dark Mode</button>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-text">Performance</div>
+    </div>
+
+    <section>
+      <h2>최초의 ai를 이용한 거북목 치료기</h2>
+      <p>
+        ai와 imu센서를 이용해 사용자의 목을 스캔하여 맞춤형 시스템을 만들어줍니다.<br>
+      </p>
+    </section>
+
+    <section>
+      <h2>열을 이기는 지능형 시스템</h2>
+      <p>
+        열 관리를 위한 지능형 쿨링 기술로 오랜 시간 작업해도 일정한 성능을 유지합니다.<br>
+        조용하고 강력한 시스템으로 창작의 흐름을 방해받지 마세요.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Porsoinc Inc.
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('dark-mode-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    });
+
+    // 스크롤 애니메이션
+    (() => {
+      let targetScroll = window.scrollY;
+      let currentScroll = window.scrollY;
+      const ease = 0.25;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+      function update() {
+        currentScroll += (targetScroll - currentScroll) * ease;
+        window.scrollTo(0, currentScroll);
+        if (Math.abs(targetScroll - currentScroll) > 0.1) {
+          window.requestAnimationFrame(update);
+        } else {
+          currentScroll = targetScroll;
+        }
+      }
+
+      window.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        targetScroll += e.deltaY * 1.2;
+        targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+        window.requestAnimationFrame(update);
+      }, { passive: false });
+    })();
+  </script>
+</body>
+</html>
