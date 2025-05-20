@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta property="og:title" content="BARUM - SORI" />
+  <meta property="og:description" content="혁신적인 하드웨어와 소프트웨어의 조합으로, 이전에는 경험할 수 없었던 퍼포먼스를 제공합니다." />
+  <meta property="og:url" content="https://barum-sori.github.io/BARUM-SORI/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="BARUM - SORI" />
+
+  <style>
+    /* 기본 리셋 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      /* 위치 이동 부드럽게 */
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background: #fff;
+      color: #111;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-y: scroll; /* 항상 스크롤바 보이게 */
+      height: 100vh;
+    }
+
+    /* 헤더 */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255, 255, 255, 0.9);
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+      z-index: 100;
+      gap: 40px;
+    }
+
+    header nav {
+      display: flex;
+      gap: 60px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: #000;
+    }
+
+    /* 다크모드 버튼 */
+    #dark-mode-toggle {
+      cursor: pointer;
+      background: none;
+      border: 1.5px solid #333;
+      border-radius: 20px;
+      padding: 5px 15px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    #dark-mode-toggle:hover {
+      background-color: #ddd;
+    }
+
+    main {
+      padding-top: 60px;
+    }
+
+    /* 히어로 영역 */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .video-background {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      filter: brightness(0.6);
+      transition: filter 0.3s ease;
+    }
+
+    .video-background iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 300px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      font-size: 3rem;
+      font-weight: 700;
+      text-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+      color: #fff;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    section h2 {
+      margin-bottom: 12px;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #111;
+      transition: color 0.3s ease;
+    }
+
+    section p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #777;
+      border-top: 1px solid #ddd;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* 다크모드 스타일 */
+    body.dark-mode {
+      background-color: #121212;
+      color: #eee;
+    }
+
+    body.dark-mode header {
+      background: rgba(18, 18, 18, 0.9);
+      box-shadow: 0 1px 5px rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark-mode header nav a {
+      color: #ccc;
+    }
+
+    body.dark-mode header nav a:hover {
+      color: #fff;
+    }
+
+    body.dark-mode #dark-mode-toggle {
+      border-color: #ccc;
+      color: #ccc;
+    }
+
+    body.dark-mode #dark-mode-toggle:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
+    body.dark-mode .video-background {
+      filter: brightness(0.4);
+    }
+
+    body.dark-mode section h2 {
+      color: #fff;
+    }
+
+    body.dark-mode section p {
+      color: #ccc;
+    }
+
+    body.dark-mode footer {
+      color: #888;
+      border-color: #333;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="performance.html">Performance</a>
+      <a href="price.html">Price</a>
+      <a href="launch.html">Launch</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <button id="dark-mode-toggle">Dark Mode</button>
+  </header>
+  
+  <main>
+    <div class="hero">
+      <div class="video-background">
+        <iframe
+          src="https://www.youtube.com/embed/h6obwLrjP1o?autoplay=1&mute=1&controls=0&loop=1&playlist=h6obwLrjP1o"
+          frameborder="0"
+          allow="autoplay; fullscreen"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="hero-text">
+        BARUM - SORI
+      </div>
+    </div>
+  
+    <section>
+      <h2>최신 제품 소개</h2>
+      <p>퍼소닉의 최신 기술을 경험하세요.</p><br>
+      <h2>스펙과 성능</h2>
+      <p>혁신적인 하드웨어와 소프트웨어의 조합으로, 이전에는 경험할 수 없었던 퍼포먼스를 제공합니다.</p>
+    </section>
+  </main>
+  
+  <footer>
+    &copy; 2025 Porsoinc Inc.
+  </footer>
+
+  <script>
+  // 다크모드 토글
+  const toggleBtn = document.getElementById('dark-mode-toggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    toggleBtn.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+  });
+
+  // 쫀득한 스크롤 애니메이션
+  (() => {
+    let targetScroll = window.scrollY;
+    let currentScroll = window.scrollY;
+    const ease = 0.25; // 반응 속도 좀 더 빠르게 조절
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+    function update() {
+      currentScroll += (targetScroll - currentScroll) * ease;
+      window.scrollTo(0, currentScroll);
+
+      if (Math.abs(targetScroll - currentScroll) > 0.1) {
+        window.requestAnimationFrame(update);
+      } else {
+        currentScroll = targetScroll;
+      }
+    }
+
+    window.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      targetScroll += e.deltaY * 1.2; // 스크롤 민감도 조절
+      targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+
+      window.requestAnimationFrame(update);
+    }, { passive: false });
+  })();
+</script>
+
+
+</body>
+</html>
